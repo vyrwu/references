@@ -12,7 +12,7 @@ Billed for:
 Access to files stored in EFS can be controlled using standard POSIX users and groups.
 
 ## Lifecycle Management
-EFS storage features lifecycle policies that can be applied to manage the lifecycle of files stored. For example:
+Features lifecycle policies that can be applied to manage the lifecycle of files stored. For example:
 - Moving files to different storage classes
 - Deleting files after certain period of time
 - etc... 

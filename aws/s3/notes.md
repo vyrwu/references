@@ -32,3 +32,7 @@ Create a bucket policy that denies Put requests without the *"x-amz-server-side-
 ### **Ensure that objects uploaded to S3 are also encrypted prior to being uploaded to S3.**
 
 Encrypt files before they are uploaded to S3 using your own key.
+
+### Ned a reliable data storage for Machine Learning purposes (AI, data analysis, etc.)
+
+Build a data lake on top of S3 (optionally use AWS Lake Formation).
