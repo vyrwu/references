@@ -13,6 +13,13 @@ Require a commitement of 1 to 3 years, at a discounted price. Good for predictab
 ### Spot
 Unused on-demand capacity offered to AWS customers at a steep discount. Suitable for workloads that can withstand the loss of a node - development environments, stateless applications, interruptible processing. Typically run as a mix with On-Demand, where Spot is used only when the strike price is lower than the On-Demand.
 
+## Placement Groups
+Dictated the placement of instances withing the Availability Zone.
+
+- cluster - packs instances close together. Good for high performance. Good for tightly-coupled node-to-node HCP apps.
+- partition - each partition runs of a separate hardware. Good for large distributed and replicated workloads that require resiliency. Good for Hadoop, Cassandra, and Kafka.
+- spread - spreads instances across hardware to reduce correlated failures.
+
 ## Storage
 
 EC2 instances can mount EBS volumes and EC2 instance stores. EC2s can have multiple EBS volumes attached (encrypted or unencrypted).
