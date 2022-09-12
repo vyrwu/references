@@ -8,13 +8,13 @@ A physical Data Center location, owned by Amazon.
 Gateway connects VPC to another network.
 
 ### Internet Gateway
-Connects VPC to the Internet.
+Connects VPC to the Internet. Egress-only Internet Gateway provides egress-only access to the Internet using IPv6 adresses.
 
 ### Virtual Private Gateway
 Fully redundant distributed edge routing function that sits at the edge of the VPC. VPG is the VPN concentrator on the Amazon side.
 
 ### Transit Gateway
-Connects VPCs and on-premise networks via a central hub, simplifying network topology, and delivering transitive VPC peering.
+Connects VPCs and on-premise networks via a central hub, simplifying network topology, and delivering transitive VPC peering. Connects VPCs in the same region. For cross region, connect TGs' from different regions to each other. Cannot attach a VPC from another region.
 
 ### NAT Gateway
 Egress-only NAT service which allows instances from private subnets to access services outside the VPC (f.x. from the Internet). External services cannot initiate connections with the instances.
@@ -24,13 +24,15 @@ Egress-only NAT service which allows instances from private subnets to access se
 
 *NAT Instance is a customer-managed EC2 instance created from a NAT Instance AMI. Generally not recommended, as NAT Gateway is already redundant, resilient, scalable and fully managed by AWS.*
 
+### Customer Gateway
+Customer side of a VPN connection.
 ## Subnets
 Range of IPs of a VPC, residing in a single AZ.
 
 ### Routing Tables
-Determines where the network traffic from a subnet or a gateway is directed. 
+Determines where the network traffic from a subnet or a gateway is directed. 200 RTs'/VPC; 50 entries/RT
 
-On creation, VPC automatically gets a main route table.
+On creation, VPC automatically gets a main route table (cannot be deleted).
 
 Subnets implicitely use a main VPC route table by default (if custom not specified explicitely).
 
@@ -39,7 +41,7 @@ Use Transit Gateway routing tables to isolate your hybrid network topology even 
 ### Subnet types
 
 #### Public
-Points to an Internet Gateway in the associated route table.
+Points to an Internet Gateway in the associated route table. Has "Auto-assign public IPv4 address" set to "Yes".
 
 #### Private
 Points to a Virtual Private Gateway in the associated route table.
@@ -61,6 +63,8 @@ DynamoDB and S3.
 -
 
 ## Network ACLs
+Control IP-level access to the VPC on a subnet level. Does not control access within the subnet, but ingress/egress access to/from subnet. NACLs have permit and deny rules. Evaluated from lowest rule until explicit deny.
+
 Default (in allowed, out allowed)
 Custom (in denied, out denied)
 
@@ -68,3 +72,9 @@ Custom (in denied, out denied)
 
 ### Simplify network topology by removing complex VPC peering associations and on-premise VPN connections.
 Deploy a "hub-and-spoke" design for connecting VPCs and on-premise networks using a Transit Gateway.
+
+### Provide access to an external service over the Internet using IPv6 address.
+Deploy an Egress-only Internet Gateway.
+
+### Isolate network topology configuration away from the business application
+Deploy a Transit VPC using Transit Gateway.
