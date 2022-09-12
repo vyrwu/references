@@ -23,6 +23,8 @@ AWS-managed and customer-managed key encryption at rest is supported for S2. All
 ## S3 Object Lambda
 Lambda can be attached and run on a GET request for an object. Object is available to a Lambda. Client gets what Lambda returns.
 
+## S3 Bucket Policies
+Specify which actions are allowed for which principals on the bucket.
 ## Business Cases
 
 ### **Ensure that the bucket won't store unencrypted data.**

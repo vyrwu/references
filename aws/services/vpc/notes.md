@@ -52,6 +52,11 @@ Captures info about the IP traffic going to and from network interfaces in the V
 ## VPC Endpoint
 Enables private access to supported AWS services and services powered by AWS PrivateLink withour requiring Internet access, NAT device, VPN connection or AWS DirectConnect. 
 
+## VPC Security Groups
+Control what traffic is allowed in or out of the VPC. Based on source (can be other SG), protocol and port.
+- Default VPC SG: (in from SG only, out allowed)
+- Custom VPC SG: (in denied, out allowed)
+
 ### Interface endpoint
 Some AWS Services, and external services powered by AWS PrivateLink.
 
