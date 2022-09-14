@@ -1,0 +1,17 @@
+# TODO
+- ECS
+- EKS
+- IAM
+- CloudFormation
+- ControlTower
+- Organisations
+- TrustAdvisor
+- AWS Config
+- SQS
+- SNS
+- DynamoDB
+- RDS vs. Aurora
+- CloudWatch
+- CloudTrail
+- OpenSearch
+- ...

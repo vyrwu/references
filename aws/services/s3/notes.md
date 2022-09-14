@@ -25,6 +25,13 @@ Lambda can be attached and run on a GET request for an object. Object is availab
 
 ## S3 Bucket Policies
 Specify which actions are allowed for which principals on the bucket.
+
+## Event Notification
+S3 buckets can be configured to send notifications to selected services when objects become available. Can send alerts or trigger actions. Supported targets:
+- SNS Topic
+- SQS Queue
+- Lambda Function
+
 ## Business Cases
 
 ### **Ensure that the bucket won't store unencrypted data.**
