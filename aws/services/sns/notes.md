@@ -6,6 +6,7 @@ SNS decouples message consumers and producers in an asynchronous architecture.
 
 Up to 10mil subscribers. Good when pushing messages to many subscribers. Can integrate with SQS for fan-out architecture pattern.
 
+Push-based model (SNS topic pushes messages to subscribers).
 ## Endpoint Types
 
 ### Application-to-Application subscribers

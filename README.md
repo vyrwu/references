@@ -8,10 +8,13 @@
 - TrustAdvisor
 - AWS Config
 - SQS
-- SNS
 - DynamoDB
 - RDS vs. Aurora
 - CloudWatch
 - CloudTrail
 - OpenSearch
-- ...
+- StorageGateway
+- DataSync
+- SSO?
+- Cognito
+- STS

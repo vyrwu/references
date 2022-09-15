@@ -15,4 +15,6 @@ Reads Data Streams and delivers the data into a destination like Amazon S3, Reds
 Allows to process and analyse data in Kinesis Data Stream using SQL/Java/Scala. Can enrich the data, aggregate data over time, or find anomalies, and write results back into the Data Stream, or send it to the Data Firehose destination. Alternatively, feed it into a Lambda function. 
 
 ## Kinesis Video Streams
-AWS managed service to stream live video from devices to AWS cloud, or build apps for real-time video processing or batch-oriented video applications.
+AWS managed service to stream live video from devices to AWS cloud, or build apps for real-time video processing or batch-oriented video applications. Common use case is to manage video live streams for entertainment, security, scientific, machine learning or business purposes. It can also process non-video time-serialized data such as thermal imagery, depth data, RADAR data, and more.
+
+Can be configured to retain the data, and store it encrypted at rest. 
