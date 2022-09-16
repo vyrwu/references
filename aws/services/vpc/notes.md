@@ -57,6 +57,8 @@ Control what traffic is allowed in or out of the VPC. Based on source (can be ot
 - Default VPC SG: (in from SG only, out allowed)
 - Custom VPC SG: (in denied, out allowed)
 
+Ingress from all Internet network addresses -> Inbound rule, allow from source 0.0.0.0/0
+
 ### Interface endpoint
 Some AWS Services, and external services powered by AWS PrivateLink.
 
