@@ -11,10 +11,18 @@
 - DynamoDB
 - RDS vs. Aurora
 - CloudWatch
-- CloudTrail
+- CloudTrail ()
 - OpenSearch
 - StorageGateway
 - DataSync
 - SSO?
 - Cognito
 - STS
+- EC2 Scaling Policies
+- SAM
+- CloudFront field-level encryption
+- DynamoDB AutoScaling Policy
+- DynamoDB Streams
+- EFS Max I/O / General Purpose
+- AWS Inspector
+- 

@@ -2,7 +2,18 @@
 
 AWS-hosted CDN service, delivering static and dynamic content to clients using a worldwide network of data centers called edge locations. Edge locations are separate from Availability Zones. CDN features caching content at edge locations for better performance and lower latency.
 
+Very good for geo-restriction use-case.
+
 ## Origin
+Origin of files for the CDN to distribute. Can be:
+- S3
+- EC2
+- ELB
+- Route 53
+- external (non-AWS)
+
+## Logging
+Auditting - CloudTrail. Logging to S3 can be enabled, and logs can be explored with Athena.
 
 ## Origin Group
 Group of origins that can be a used as targets for requests. Commonly used for setting up high availability scenarios for static websites.
@@ -11,6 +22,8 @@ Group of origins that can be a used as targets for requests. Commonly used for s
 Light-weight functions in JavaScript for high-scale, latency-sensitive CDN customizations. Function can manipulate requests and responses flowing through the Edge location, perform basic authentication, generate HTTP responses etc.
 
 1/6th of Lambda@Edge cost, is also lower latency, because it's running on the Edge location directly, not on Lambda engine elsewhere.
+
+## Field-level Encryption
 
 ## Business Cases
 

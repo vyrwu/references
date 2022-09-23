@@ -28,6 +28,21 @@ Used for infrequently accessed data at a reduced cost. Data replicated across AZ
 ### EFS One Zone&One Zone-IA
 Same as Standard, but stored redundantly in only one AZ. Automatically backs up the data with AWS Backup (backups are replicated to 3 AZs and stored with 11 9's durability).
 
+
+## Performance Modes
+
+### General Purpose
+Up to 35000 IOPS, lowest per-operation latency. Fit for vast majority of use cases.
+### Max I/O
+500,000+ IOPS, higher per-operation latency than General Purpose. 
+
+## Throughput Modes
+Throughput modes can be changed once every 24-hours.
+
+### Bursting
+Default EFS throughput mode, suitable for applications with bursty throughput pattern. Throughput is calculated based on the amount of data stored in the EFS - proportional to the size of the EFS, up to per-region max quota. When inactive, or throughput is below metered baseline, the EFS accumulates burst credits. When above the baseline, it spends burst credits.
+### Provisioned
+Good for apps with consistent, known throughput. Throughput is user-specified, billing is per excess throughput provisioned compared to baseline. 
 ## Business Cases
 
 ### **Move inferquently accessed data to another storage class after 7 days**
