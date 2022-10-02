@@ -29,6 +29,13 @@ Customer side of a VPN connection.
 ## Subnets
 Range of IPs of a VPC, residing in a single AZ.
 
+AWS reserves 5 IP addresses in each subnet:
+- 10.0.0.0 - network address
+- 10.0.0.1 - VPC router
+- 10.0.0.2 - DNS server
+- 10.0.0.3 - future use
+- 10.0.0.255 - network broadcast address. Not used inside VPC, but still reserved.
+
 ### Routing Tables
 Determines where the network traffic from a subnet or a gateway is directed. 200 RTs'/VPC; 50 entries/RT
 
@@ -67,13 +74,11 @@ DynamoDB and S3.
 
 ## Billing
 - Interface endpoints: Billed hourly and for data processing.
--
 
 ## Network ACLs
 Control IP-level access to the VPC on a subnet level. Does not control access within the subnet, but ingress/egress access to/from subnet. NACLs have permit and deny rules. Evaluated from lowest rule until explicit deny.
-
-Default (in allowed, out allowed)
-Custom (in denied, out denied)
+- Default (in allowed, out allowed)
+- Custom (in denied, out denied)
 
 ## Business Case
 
