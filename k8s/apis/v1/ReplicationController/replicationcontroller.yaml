@@ -1,0 +1,21 @@
+# > **IMPORTANT**
+# > `v1/ReplicationController` has been replaced with `apps/v1/ReplicaSet`.
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp-rc
+    type: front-end
+spec:
+    replicas: 3
+    template:
+      metadata:
+      name: myapp-rc
+      labels:
+        app: myapp-rc
+        type: front-end
+      spec:
+        containers:
+        - name: myapp-rc
+          image: nginx
