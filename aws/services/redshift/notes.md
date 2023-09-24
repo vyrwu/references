@@ -7,3 +7,7 @@ Provisioning, scaling and managing clusters in this service is on the customer, 
 # Redshift Serverless
 
 Fully AWS-managed Redshift service, which infrastructure is managed by AWS. Cluster scaling is automatic and adjusted to the load. Customers only pay for the usage of the data.
+
+# Redshift Spectrum
+
+Query data directly from files in S3. 
