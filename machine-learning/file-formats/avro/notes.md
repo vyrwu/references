@@ -7,5 +7,6 @@ communication between Hadoop nodes.
 Simillar to Thrift and Protobuf, but doesn't require code-generation.
 
 ## Schema
+
 Uses AVRO IDL for human-readable schemas, and another JSON-based for
 machine-readable schemas.
