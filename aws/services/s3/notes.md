@@ -25,6 +25,18 @@ compute (EC2/Athena/Redshift Spectrum/Rekognition/AWS Glue).
 
 Partitioning is done by object key. f.x.
 
+Extremely important step when ingesting S3 data. How are you going to
+query your data in data lake? Glue can extract partitions from data in
+S3.
+
+Partition names should have the following format for Glue to
+automatically name the partitions in schema:
+<partition_name>=<partition_value>.
+
+Example:
+
+- `s3://ano_bucket/data/year=2023/month=09/day=26/hour=13/data_01.csv`
+
 Typical strategies:
 
 - By Date: `s3://ano_bucket/data/year/month/day/hour/data_01.csv`

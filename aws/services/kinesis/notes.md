@@ -28,7 +28,7 @@ Streams are divided into ordered Shards/Partitions.
 
 Data is immutable (cannot be deleted once injested).
 
-Default retention: 24h, can be increased up to 365 days. Data can be 
+Default retention: 24h, can be increased up to 365 days. Data can be
 replayed.
 
 Multiple consumers can consume the same shard.
@@ -36,7 +36,7 @@ Multiple consumers can consume the same shard.
 Records are up to 1MB in size - not good for peta-byte scale batch
 analysis.
 
-Used to create reat-time applications:
+Used to create real-time applications:
 
 - Classic: ~200ms
 - Enchanced fan-out: ~70ms
@@ -59,17 +59,6 @@ Producer: 1MB/s or 1000 records/s write per single consumer, otherwise
 Consumer (Classic): 2MB/s or 2000 records/s read ALL consumers
 Consumer (Classic): 5 API calls/s read ALL consumers
 
-
-## Kinesis Data Analytics
-
-Allows to process and analyse data in Kinesis Data Stream using
-SQL/Java/Scala. Can enrich the data, aggregate data over time, or find
-anomalies, and write results back into the Data Stream, or send it to
-the Data Firehose destination. Alternatively, feed it into a Lambda
-function.
-
-Real-time stream analytics with SQL.
-
 ## Kinesis Data Firehose
 
 Reads Data Streams and delivers the data into a destination like Amazon
@@ -83,20 +72,25 @@ integrations, or custom destinations.
 
 NOT REAL TIME, Near real-time (1min latency minimum for non-full batches).
 
-- from CSV/JSON to Parquet/ORC (S3 only)
-- transformation via Lambda (f.x. CSV to JSON)
+### Transformations
+
+Ingested data can be transformed before it is written to the destination
+via AWS Lambda (f.x. from CSV to JSON). Several "blueprints" available.
+
 - supports compression (GZIP, ZIP, SNAPPY)
 - pay per use (amount of data going through Firehose)
 
-Reads from:
+For S3 data source, JSON data can be auto-converted to Parquet or ORC.
+
+### Ingest from
 
 - Kinesis Data Streams
 - Amazon CloudWatch (logs&events)
 - AWS IOT
 
-Can transform the data via Lambda (several "blueprints" available).
+### Loading
 
-Batch writes data into:
+Loads in batches.
 
 - S3
 - Redshift (copy through S3)
@@ -104,21 +98,98 @@ Batch writes data into:
 - 3rd party (Datadog, MongoDB, NewRelic, Splunk)
 - custom HTTP destination
 
+#### Buffer
+
+Buffer size and interval are configurable.
+
+- Buffer size
+  - Min. 1MB
+  - Higher buffer size = higher latency, lower cost
+  - Lower buffer size = lower latency, higher cost
+- Buffer interval
+  - Min. 60s
+  - Higher interval = more data accumulated, bigger batches
+  - Lower interval = higher data frequency, good for short data cycles
+
+#### Error handling
+
 Can send data to S3 in case of failure.
 
 - source records
 - transformation failures
 - delivery failures
 
+#### Encryption
+
+- AWS managed CMK (S3-managed key)
+- Customer managed CMK
+
+#### Compression
+
+- GZIP
+- SNAPPY (Normal and Hadoop-compatible)
+- ZIP
+
+## Kinesis Data Analytics
+
+Serverless service that performs real-time data analytics on stream data.
+
+Takes input stream and runs SQL/Flink query on it. Writes result back
+to another stream. Can use reference data from S3 to join data via query.
+
+Uses IAM to access source/destination streams.
+
+### Inputs
+
+- Kinesis Data Stream
+- Kinesis Data Firehose destination
+- (Optional) Reference data in S3
+
+### Outputs
+
+- Kinesis Data Stream
+- Kinesis Data Firehose
+- (Optional) Error Stream
+
+### Provided SQL functions
+
+- RANDOM_CUT_FOREST: find data outliers and anomalies
+- HOTSPOTS: find trends and dense data regions
+
+### Use cases
+
+- Streaming ETL: select columns, simple transformations, on streams
+- Real-Time Metrics: gaming, leaderboards, stock tickers, sensor data
+- Responsive Analytics: alerting, anomaly detection, trends
+
 ## Kinesis Video Streams
 
-AWS managed service to stream live video from devices to AWS cloud, or
-build apps for real-time video processing or batch-oriented video
-applications. Common use case is to manage video live streams for
+Stream live video from devices to AWS cloud, or build apps for
+real-time video processing or batch-oriented video applications.
+
+Support live feed (video playback).
+
+Data retention: 1d to 10y.
+
+## Producers
+
+One producer per video stream.
+
+- cameras
+- images
+- audio
+- RADAR data
+- RTSP cameras
+- AWS DeepLens
+
+## Consumers
+
+- own consumers (Tensorflow, MXNet)
+- AWS SageMaker
+- Amazon Rekognition Video
+
+Common use case is to manage video live streams for
 entertainment, security, scientific, machine learning or business
 purposes. It can also process non-video time-serialized data such as
 thermal imagery, depth data, RADAR data, and more.
 
-Can be configured to retain the data, and store it encrypted at rest.
-
-For streaming, real-time data.
