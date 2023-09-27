@@ -80,3 +80,9 @@
 - [DynamoDB](./aws/services/dynamodb/notes.md)
 - [ElastiCache](./aws/services/elasticache/notes.md)
 - [Athena](./aws/services/athena/notes.md)
+- [OpenSearch](./aws/services/opensearch/notes.md)
+- [Batch](./aws/services/batch/notes.md]
+- [Data Pipeline](./aws/services/datapipeline/notes.md]
+- [DataSync](./aws/services/datasync/notes.md)
+- [DMS](./aws/services/dms/notes.md]
+- [Step Functions](./aws/services/step_functions/notes.md]
