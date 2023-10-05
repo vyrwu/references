@@ -36,9 +36,9 @@ The inferred data schemas can be used to query and analyse data via:
 
 ## Glue ETL
 
-Fully managed, serverless Spark platform for running ETL jobs. Generate
-Glue ETL code in Python/Scala, or provide own Spark/PySpark script.
-Targets can be S3/JDBC(RDS/Redshift)/Glue Data Catalogue.
+Fully managed, serverless Spark platform for running ETL jobs.
+Generate Glue ETL code in Python/Scala, or provide own Spark/PySpark
+script. Targets can be S3/JDBC(RDS/Redshift)/Glue Data Catalogue.
 
 ### Schedules
 
@@ -56,8 +56,9 @@ Trigger ETL jobs based on events happening.
   - Join (enrich data)
   - Map (add fields, remove fields, perform external lookups)
 - ML Transformations:
-  - FindMatchesML (find duplicates or matching records in data set, event
-    when there's no common identifier or fields do not match exactly)
+  - FindMatchesML (find duplicates or matching records in data set,
+    event when there's no common identifier or fields do not match
+    exactly)
 - Format conversion:
   - CSV
   - JSON
@@ -66,7 +67,8 @@ Trigger ETL jobs based on events happening.
   - ORC
   - AVRO
 - Apache Spark:
-  - K-Means 
+  - K-Means
+
 ### Use cases
 
 Good for pre-analysis data manipulation/clean-up/enrichment.
@@ -77,9 +79,14 @@ Good for pre-analysis data manipulation/clean-up/enrichment.
 
 ## S3 Data Lake
 
-Allows to integrate data from various sources into an S3 Data Lake, and
-then automatically query using Athena/Redshift Spectrum/EMR.
+Allows to integrate data from various sources into an S3 Data Lake,
+and then automatically query using Athena/Redshift Spectrum/EMR.
 
 ## Glue Studio
 
 UI on top of Glue that visualizes the data integration workflows.
+
+## Glue DataBrew
+
+Provides masking techniques used to obfuscate PIIs during the data
+preparation process. H

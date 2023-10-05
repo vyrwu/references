@@ -20,3 +20,11 @@ Redshift Spectrum clusters.
 Fully AWS-managed Redshift service, which infrastructure is managed by
 AWS. Cluster scaling is automatic and adjusted to the load. Customers
 only pay for the usage of the data.
+
+## Redshift User Defined Functions
+
+Redshift allows you to run massive SQL queries. UDFs are scalar
+functions that can transform input data for further processing,
+modeling and analysys. Simple UDFs are typically written using
+SQL/Python, but more complex can be written as in AWS Lambda (f.x. to
+lookup/join third-party data, or access network/storage resources).
