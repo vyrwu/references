@@ -6,8 +6,8 @@ Managed Kubernetes clusters on AWS.
 
 Volumes attached to Pods that are not backed by persisted remote volume.
 
-Used to store operational data, or data that has to be accessed frequently
-at low latency.
+Used to store operational data, or data that has to be accessed frequently at
+low latency.
 
 There are multiple types of ephemeral volumes:
 
@@ -16,5 +16,8 @@ There are multiple types of ephemeral volumes:
 - `CSI ephemeral vol.`: provided by specific CSI drivers
 - `generic emphemeral vol.`: provided by persistent volumes storage drivers
 
+## EKS Supported Data Volumes
 
-
+- EBS
+- Amazon FSx for Lustre/NetApp ONTAP
+- EFS (the only one available on Fargate)

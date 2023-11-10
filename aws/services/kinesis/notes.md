@@ -132,7 +132,7 @@ Can send data to S3 in case of failure.
 - SNAPPY (Normal and Hadoop-compatible)
 - ZIP
 
-## Kinesis Data Analytics
+## Kinesis Data Analytics for SQL applications
 
 Serverless service that performs real-time data analytics on stream data.
 
@@ -140,6 +140,8 @@ Takes input stream and runs SQL/Flink query on it. Writes result back to another
 stream. Can use reference data from S3 to join data via query.
 
 Uses IAM to access source/destination streams.
+
+Allows to lookup reference tables via query join.
 
 ### Inputs
 
@@ -151,6 +153,7 @@ Uses IAM to access source/destination streams.
 
 - Kinesis Data Stream
 - Kinesis Data Firehose
+- Lambda! for aggregation/re-formatting/enriching
 - (Optional) Error Stream
 
 ### Provided SQL functions
