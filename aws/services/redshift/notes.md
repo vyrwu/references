@@ -28,3 +28,14 @@ functions that can transform input data for further processing,
 modeling and analysys. Simple UDFs are typically written using
 SQL/Python, but more complex can be written as in AWS Lambda (f.x. to
 lookup/join third-party data, or access network/storage resources).
+
+## Materialized Views
+
+Query performance can be vastly improved by using materialized views.
+They allow expensive queries to be loaded into memory, and reused in
+other queries. To refresh the data in the materialized view:
+
+- run `REFRESH MATERIALIZED VIEW` command to manually refresh the data
+- use Redshift Scheduler API to refresh data on-demand
+- setup autorefresh, which will run when cluster has the most
+  available resources based in its usage pattern

@@ -89,4 +89,9 @@ UI on top of Glue that visualizes the data integration workflows.
 ## Glue DataBrew
 
 Provides masking techniques used to obfuscate PIIs during the data
-preparation process. H
+preparation process.
+
+## Glue Schema Registry
+
+Registry for streaming data schemas. Formats: AVRO, JSON, Protobuf.
+For integration with Kinesis Data Streams/Kafka/AWS MKS/Apache Flink.
