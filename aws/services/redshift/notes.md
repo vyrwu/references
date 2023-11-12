@@ -50,3 +50,9 @@ Can unload the results of a query as text/JSON/Parquet files to S3 (with SSE).
 Useful when unloading data from Redshift to S3 for long-term storage.
 
 WARNING: does not support unloading to S3 Glacier tiers.
+
+## Zero-ETL
+
+- Auto-copy S3 data into Redshift.
+- Auto-copy Aurora DB data into Redshift to enable near real-time analytics.
+- Auto-ingest real-time data from Kinesis Data Streams or MSK into Redshift.

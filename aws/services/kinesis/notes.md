@@ -16,6 +16,9 @@ frameworks (Spark/NiFi/...).
 
 Data is replicated onto 3 AZs.
 
+IMPORTANT: Good for processing large number of small messages in near
+real-time/real-time.
+
 ## Kinesis Data Streams
 
 Collects and processes large streams of record data in real time. Applications
@@ -29,7 +32,10 @@ Data is immutable (cannot be deleted once injested).
 
 Default retention: 24h, can be increased up to 365 days. Data can be replayed.
 
-Multiple consumers can consume the same shard.
+Sequence of events can be preserved up to 24h, but can be increased to 7 days.
+
+Multiple consumers can consume the same shard. Multiple producers can write to a
+single shard.
 
 Records are up to 1MB in size - not good for peta-byte scale batch analysis.
 
